@@ -1,0 +1,161 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Atomic Flow",
+      "archetype": "Scientific Organic",
+      "tone": "Disciplined, Fresh, Architectural, Warm",
+      "keywords": [
+        "Growth",
+        "Structure",
+        "Clarity",
+        "Momentum"
+      ]
+    },
+    "typography": {
+      "font_family": {
+        "heading": "Clash Display, sans-serif",
+        "body": "Satoshi, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "cdn_links": [
+        "https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap"
+      ],
+      "scale": {
+        "h1": "text-5xl md:text-7xl font-semibold tracking-tight leading-[0.95]",
+        "h2": "text-3xl md:text-5xl font-medium tracking-tight",
+        "h3": "text-2xl md:text-3xl font-medium",
+        "body_lg": "text-lg md:text-xl leading-relaxed",
+        "body_sm": "text-sm text-muted-foreground",
+        "caption": "text-xs font-mono tracking-widest uppercase"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": "#F2F0E9",
+        "foreground": "#1A1A1A",
+        "card": "#FFFFFF",
+        "card_foreground": "#1A1A1A",
+        "primary": "#2E4033",
+        "primary_foreground": "#FFFFFF",
+        "secondary": "#E8E6DE",
+        "secondary_foreground": "#2E4033",
+        "muted": "#E2E0D6",
+        "muted_foreground": "#6B706B",
+        "accent": "#E35205",
+        "accent_foreground": "#FFFFFF",
+        "success": "#4F772D",
+        "destructive": "#CD3F31",
+        "border": "#DQD9D0",
+        "ring": "#2E4033"
+      },
+      "usage": {
+        "background": "Use #F2F0E9 (Bone) as the global page background. Never use pure white for the page.",
+        "cards": "Use #FFFFFF (White) for cards to create lift against the bone background.",
+        "primary_action": "Use Deep Evergreen (#2E4033) for primary buttons and active states.",
+        "call_to_action": "Use International Orange (#E35205) SPARINGLY for high-priority actions or 'Craving' cues."
+      }
+    },
+    "layout": {
+      "grid_system": "Bento Grid",
+      "container": "max-w-7xl mx-auto px-4 md:px-8",
+      "spacing": {
+        "section_gap": "gap-12 md:gap-24",
+        "component_gap": "gap-4 md:gap-6"
+      },
+      "border_radius": {
+        "lg": "rounded-xl",
+        "md": "rounded-lg",
+        "sm": "rounded-md",
+        "button": "rounded-full"
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-3 font-medium transition-all hover:scale-[1.02] active:scale-[0.98]",
+        "secondary": "bg-white border border-input hover:bg-secondary/50 rounded-full px-8 py-3 font-medium transition-colors",
+        "ghost": "hover:bg-secondary/50 rounded-full px-4 py-2 font-medium"
+      },
+      "cards": {
+        "base": "bg-white rounded-xl border border-border/40 shadow-sm p-6 md:p-8 hover:shadow-md transition-shadow duration-300",
+        "habit_card": "flex items-center justify-between p-4 bg-white rounded-xl border-l-4 border-l-primary shadow-sm hover:translate-x-1 transition-transform"
+      },
+      "inputs": {
+        "base": "h-12 rounded-lg border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+      }
+    },
+    "visual_enhancers": {
+      "textures": {
+        "grain": "Use a subtle SVG noise overlay with mix-blend-mode: overlay and opacity-30 on the main background to give it paper-like texture.",
+        "glass": "backdrop-blur-md bg-white/70 border border-white/20 shadow-sm"
+      },
+      "animation": {
+        "micro": "Use framer-motion for scale taps (0.95) on checkmarks.",
+        "page_transition": "Fade up with slight y-offset (y: 20 -> 0).",
+        "habit_completion": "Confetti explosion or checkmark path drawing animation."
+      }
+    },
+    "assets": {
+      "images": [
+        {
+          "category": "hero",
+          "url": "https://images.unsplash.com/photo-1771242905810-82d5f104cf4c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwzfHxhcmNoaXRlY3R1cmFsJTIwbW9kZWwlMjBidWlsZGluZ3xlbnwwfHx8fDE3NzE5NDUyODJ8MA&ixlib=rb-4.1.0&q=85",
+          "alt": "Hand placing architectural roof - Building Habits"
+        },
+        {
+          "category": "auth",
+          "url": "https://images.pexels.com/photos/433205/pexels-photo-433205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          "alt": "Coffee and notebook - Morning Ritual"
+        },
+        {
+          "category": "health",
+          "url": "https://images.unsplash.com/photo-1645106281638-79585657aa4e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwcnVubmluZyUyMHNob2VzJTIwYWVzdGhldGljfGVufDB8fHx8MTc3MTk0NTI5MXww&ixlib=rb-4.1.0&q=85",
+          "alt": "Running shoes - Physical Health"
+        },
+        {
+          "category": "productivity",
+          "url": "https://images.unsplash.com/photo-1674083324759-bdeade274ed3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHxtaW5pbWFsaXN0JTIwZGVzayUyMHNldHVwJTIwcHJvZHVjdGl2aXR5fGVufDB8fHx8MTc3MTk0NTI5M3ww&ixlib=rb-4.1.0&q=85",
+          "alt": "Clean desk setup - Deep Work"
+        },
+        {
+          "category": "mindfulness",
+          "url": "https://images.unsplash.com/photo-1646909106850-8c426285ed2a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwzfHxtZWRpdGF0aW9uJTIwY3VzaGlvbiUyMHplbiUyMGFlc3RoZXRpY3xlbnwwfHx8fDE3NzE5NDUyOTR8MA&ixlib=rb-4.1.0&q=85",
+          "alt": "Zen rocks - Mental Clarity"
+        },
+        {
+          "category": "finance",
+          "url": "https://images.unsplash.com/photo-1622210445956-ca3320a5e7c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBncm93dGglMjBwbGFudCUyMGNvaW4lMjBtaW5pbWFsaXN0fGVufDB8fHx8MTc3MTk0NTI5Nnww&ixlib=rb-4.1.0&q=85",
+          "alt": "Plant growth - Financial Health"
+        }
+      ],
+      "icons": {
+        "library": "@phosphor-icons/react",
+        "style": "Regular or Bold weight",
+        "mapping": {
+          "dashboard": "SquaresFour",
+          "habits": "CheckCircle",
+          "analytics": "ChartLineUp",
+          "settings": "Gear",
+          "add": "Plus"
+        }
+      }
+    },
+    "universal_guidelines": [
+      "Don't make generic centered layouts. Use asymmetry.",
+      "Use 'Clash Display' for all Headings (H1-H3).",
+      "Use 'Satoshi' for Body text.",
+      "Implement the 'Organic & Earthy' color palette rigidly. No default blue.",
+      "Use generous spacing (p-8, p-12) to create breathing room.",
+      "Add data-testid to all interactive elements."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. INSTALL FONTS: Add the Fontshare CDN link to the index.html head immediately.",
+    "2. SETUP TAILWIND: Update tailwind.config.js with the custom color palette (Bone, Deep Evergreen, International Orange) and font families.",
+    "3. CREATE LAYOUT: Build a 'DashboardLayout' using the Sidebar + Header pattern, but styled with the 'Organic' aesthetic (Bone background).",
+    "4. BUILD COMPONENTS: Create a reusable 'HabitCard' component that supports the 'Atomic Habits' properties (Cue, Craving, Response, Reward).",
+    "5. ROUTING: Implement React Router for /dashboard, /habits, /analytics, /auth.",
+    "6. ANIMATION: Use framer-motion for page transitions and micro-interactions (especially the checkmark).",
+    "7. DATA: Use the provided category images for the 'Create Habit' category selection grid.",
+    "8. CHARTS: Use Shadcn Charts (Recharts) but style them with the brand colors (#2E4033, #E35205)."
+  ]
+}
