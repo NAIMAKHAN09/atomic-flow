@@ -202,6 +202,10 @@ async def get_me(request: Request):
     if not user_doc:
         raise HTTPException(status_code=404, detail="User not found")
     
+    # Handle datetime conversion for created_at field
+    if isinstance(user_doc.get('created_at'), datetime):
+        user_doc['created_at'] = user_doc['created_at'].isoformat()
+    
     return User(**user_doc)
 
 @api_router.post("/auth/logout")
