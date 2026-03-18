@@ -392,16 +392,30 @@ async def get_streaks(request: Request):
     
     habits = await db.habits.find({"user_id": user_id}, {"_id": 0}).to_list(1000)
     
+    # Optimized: Fetch all logs for this user in a single query instead of N queries
+    all_logs = await db.habit_logs.find(
+        {"user_id": user_id},
+        {"_id": 0}
+    ).sort("completed_at", -1).to_list(10000)
+    
+    # Group logs by habit_id in memory
+    logs_by_habit = {}
+    for log in all_logs:
+        habit_id = log["habit_id"]
+        if habit_id not in logs_by_habit:
+            logs_by_habit[habit_id] = []
+        logs_by_habit[habit_id].append(log)
+    
     streaks = []
+    today = datetime.now(timezone.utc).date()
+    
     for habit in habits:
-        logs = await db.habit_logs.find(
-            {"habit_id": habit["habit_id"]},
-            {"_id": 0}
-        ).sort("completed_at", -1).to_list(1000)
+        habit_id = habit["habit_id"]
+        logs = logs_by_habit.get(habit_id, [])
         
         if not logs:
             streaks.append({
-                "habit_id": habit["habit_id"],
+                "habit_id": habit_id,
                 "habit_name": habit["name"],
                 "current_streak": 0,
                 "total_completions": 0
@@ -414,7 +428,6 @@ async def get_streaks(request: Request):
             dates_with_logs.add(log_date)
         
         sorted_dates = sorted(dates_with_logs, reverse=True)
-        today = datetime.now(timezone.utc).date()
         
         current_streak = 0
         if sorted_dates[0] == today or sorted_dates[0] == today - timedelta(days=1):
@@ -426,7 +439,7 @@ async def get_streaks(request: Request):
                     break
         
         streaks.append({
-            "habit_id": habit["habit_id"],
+            "habit_id": habit_id,
             "habit_name": habit["name"],
             "current_streak": current_streak,
             "total_completions": len(logs)
