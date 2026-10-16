@@ -1,62 +1,63 @@
 # Atomic Flow — Habit Tracking Application
 
-Atomic Flow is a habit-tracking application built around the idea of making routines measurable and easier to maintain.
+Atomic Flow is a habit-tracking web application built around making routines easier to record, review, and maintain. The repository contains a React frontend and a Python FastAPI backend that persists data in MongoDB.
 
-The repository contains a React frontend and a Python FastAPI backend, with MongoDB used for data persistence.
+## Project Capabilities
 
-## Current Project Scope
+The source code defines flows and data models for:
 
-The backend models and API tests indicate support for:
-
-- User authentication and sessions
-- Habit creation and editing
+- User sessions and authentication callbacks
+- Creating and updating habits
 - Habit categories and descriptions
-- Habit logs and completion tracking
-- Habit streaks and summary analytics
-- Habit details inspired by cue, craving, response, and reward
+- Habit logs and completion records
+- Habit-related summaries and analytics
+- Habit planning based on cue, craving, response, and reward
 
-These capabilities should be verified against the running application before being treated as a complete feature list.
+This list reflects the repository's code structure; verify each flow in a running environment before presenting it as production-ready functionality.
 
 ## Technology Stack
 
 **Frontend**
 - React
 - React Router
-- Tailwind CSS
-- CRACO
+- CRACO and React Scripts
+- Tailwind CSS and reusable UI components
 
 **Backend**
 - Python
 - FastAPI
-- Motor
-- MongoDB
+- Motor and MongoDB
 - Pydantic
+- Uvicorn
 
 ## Architecture
 
 ```text
-User
-  |
-  v
-React Frontend
-  |
-  v
-FastAPI Backend
-  |
-  v
+Browser
+   |
+   v
+React frontend
+   |
+   v
+FastAPI REST API
+   |
+   v
 MongoDB
 ```
 
 ## Repository Structure
 
-- `frontend/` — React application
-- `backend/` — API server and data models
-- `backend_test.py` — API testing script
+- `frontend/` — React application and UI
+- `backend/server.py` — FastAPI application and API routes
+- `backend/requirements.txt` — Python dependencies
+- `backend_test.py` — backend API test script
 - `auth_testing.md` — authentication test notes
 
-## Development Setup
+## Run Locally
 
 ### Frontend
+
+From the repository root:
 
 ```bash
 cd frontend
@@ -64,7 +65,7 @@ yarn install
 yarn start
 ```
 
-The frontend package defines a production build command:
+Create a production build with:
 
 ```bash
 yarn build
@@ -72,36 +73,40 @@ yarn build
 
 ### Backend
 
-Install Python dependencies:
+From the repository root:
 
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
 
-Configure the required environment variables in a local `.env` file before starting the server. At minimum, the backend source expects `MONGO_URL` and `DB_NAME`.
+Create a local `.env` file in the `backend/` directory with the required MongoDB settings:
 
-The precise server launch command, required authentication configuration, and frontend API URL should be confirmed from the current project configuration before publishing a complete setup guide.
+```dotenv
+MONGO_URL=your_mongodb_connection_string
+DB_NAME=your_database_name
+```
+
+Start the FastAPI development server from the `backend/` directory:
+
+```bash
+uvicorn server:app --reload
+```
+
+The frontend's API base URL and the external authentication/session configuration may require additional setup depending on your local environment. Do not commit credentials or real session tokens.
 
 ## Testing
 
-The repository contains a backend API test script. Before relying on it, remove hard-coded test credentials, replace them with disposable test fixtures or environment variables, and document how to run tests safely.
+A backend test script and authentication test notes are present in the repository. Confirm their current configuration and required test environment before running them; this README does not claim that the full test suite has been executed.
 
-## Security Notes
+## Potential Next Steps
 
-- Never commit real session tokens, database credentials, or API keys.
-- Use environment variables for secrets.
-- Verify authentication and authorization checks on protected endpoints.
-- Use isolated test data when running tests that create or delete records.
-
-## Future Improvements
-
-- Document all API endpoints.
-- Add reproducible setup instructions for frontend and backend.
-- Add automated tests for authentication and habit tracking.
-- Include screenshots and a verified demo.
-- Document deployment and environment configuration.
+- Document API routes and expected request/response formats.
+- Add repeatable tests for habit creation, logging, and analytics.
+- Document frontend/backend configuration in one place.
+- Add screenshots and a verified demo.
+- Document deployment steps and known limitations.
 
 ## License
 
-Confirm the intended project license before redistribution.
+Confirm the intended license before redistributing the project.
